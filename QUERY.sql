@@ -96,3 +96,10 @@ LEFT JOIN Bookings b ON u.user_id = b.user_id;
 SELECT booking_id, match_id, total_cost
 FROM Bookings
 WHERE total_cost > (SELECT AVG(total_cost) FROM Bookings);
+
+-- Q7: 2nd and 3rd most expensive matches (OFFSET 1 skips the priciest one)
+SELECT match_id, fixture, base_ticket_price
+FROM Matches
+ORDER BY base_ticket_price DESC
+OFFSET 1 ROWS
+FETCH NEXT 2 ROWS ONLY;
