@@ -57,3 +57,14 @@ INSERT INTO Bookings (booking_id, user_id, match_id, seat_number, payment_status
 (503, 2, 101, 'A-13', 'Confirmed', 150.00),
 (504, 2, 101, NULL, NULL, 150.00),
 (505, 3, 102, 'C-20', 'Pending', 120.00);
+
+
+-- ============================================================
+-- PART 2: QUERIES
+-- ============================================================
+
+-- Q1: Champions League matches that are still available
+SELECT match_id, fixture, base_ticket_price
+FROM Matches
+WHERE tournament_category = 'Champions League'
+  AND match_status = 'Available';
